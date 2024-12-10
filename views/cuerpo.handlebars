@@ -1,0 +1,29 @@
+<h1>Agregar Cuerpo Tecnico</h1>
+<form action="/cuerpo/agregar" method="POST">
+  <label for="id_ct">ID cuerpo técnico:</label>
+  <input type="text" id="id_ct" name="id_ct" required>
+  <br>
+  <label for="nom_dt">Nombre del Director Técnico:</label>
+  <input type="text" id="nom_dt" name="nom_dt" required>
+  <br>
+  <label for="nom_asis">Nombre del asistente:</label>
+  <input type="text" id="nom_asis" name="nom_asis" required>
+  <br>
+  <button type="submit">Agregar Cuerpo Tecnico</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Cuerpo Técnico</h1>
+<form action="/cuerpo/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este cuerpo técnico?');">
+  <label for="id_ct">ID del Cuerpo Técnico:</label>
+  <input type="text" id="id_ct" name="id_ct" required placeholder="Ingrese el ID del cuerpo técnico a eliminar">
+  
+  <button type="submit">Eliminar Cuerpo Técnico</button>
+</form>

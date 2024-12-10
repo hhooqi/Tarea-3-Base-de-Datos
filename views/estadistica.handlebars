@@ -1,0 +1,94 @@
+<h1>Estadísticas de la Liga</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID Estadística</th>
+      <th>Goles</th>
+      <th>Asistencias</th>
+      <th>Minutos Jugados</th>
+      <th>ID Partido</th>
+      <th>RUT Jugador</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each estadisticas}}
+    <tr>
+      <td>{{this.id_estadistica}}</td>
+      <td>{{this.goles}}</td>
+      <td>{{this.asis}}</td>
+      <td>{{this.minutos_jugados}}</td>
+      <td>{{this.id_partido}}</td>
+      <td>{{this.rut_jugador}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h1>Máximo Goleador</h1>
+<div class="cuadro">
+<p>
+  RUT del Jugador: {{maxGoleador.rut_jugador}} <br />
+  Goles: {{maxGoleador.max_goles}}
+</p>
+</div>
+
+<h1>Buscar jugador por RUT</h1>
+<form action="/estadistica/buscar" method="POST">
+  <input type="text" name="rut_jugador" placeholder="Ingrese RUT del jugador" required />
+  <button type="submit">Buscar</button>
+</form>
+
+{{#if mensaje}}
+<p>{{mensaje}}</p>
+{{/if}}
+
+<h1>Consulta de Estadísticas</h1>
+
+<form action="/estadistica/buscarAsistidor" method="POST">
+  <p>Consulta quién fue el máximo asistidor de la liga.</p>
+  <button type="submit">Consultar Máximo Asistidor</button>
+</form>
+
+{{#if mensaje}}
+<p>{{mensaje}}</p>
+{{/if}}
+
+<h1>Agregar Estadística</h1>
+<form action="/estadistica/agregar" method="POST">
+  <label for="id_estadistica">ID de la estadística:</label>
+  <input type="text" id="id_estadistica" name="id_estadistica" required>
+  <br>
+  <label for="goles">Goles anotados:</label>
+  <input type="text" id="goles" name="goles" required>
+  <br>
+  <label for="asis">Asistencias realizadas:</label>
+  <input type="number" id="asis" name="asis" required>
+  <br>
+  <label for="minutos_jugados">Minutos Jugados:</label>
+  <input type="text" id="minutos_jugados" name="minutos_jugados" required> 
+  <br>
+    <label for="id_partido">ID del partido:</label>
+  <input type="text" id="id_partido" name="id_partido" required> 
+  <br>
+    <label for="rut_jugador">Rut del Jugador:</label>
+  <input type="text" id="rut_jugador" name="rut_jugador" required> 
+  <br>
+  <button type="submit">Agregar Estadística al jugador</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Estadística</h1>
+<form action="/estadistica/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar esta estadística?');">
+  <label for="id_estadistica">ID de la Estadística:</label>
+  <input type="text" id="id_estadistica" name="id_estadistica" required placeholder="Ingrese el ID de la estadística a eliminar">
+  
+  <button type="submit">Eliminar Estadística</button>
+</form>

@@ -1,0 +1,71 @@
+<h1>Lista de Partidos</h1>
+<table class="tabla-partidos">
+  <thead>
+    <tr>
+      <th>ID Partido</th>
+      <th>ID Estadio</th>
+      <th>ID Liga</th>
+      <th>ID Árbitro</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each partidos}}
+      <tr>
+        <td>{{id_partido}}</td>
+        <td>{{id_estadio}}</td>
+        <td>{{id_liga}}</td>
+        <td>{{id_arbitro}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+
+<h1>Fans que asistieron al Partido 1</h1>
+<table class="tabla-partidos">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>RUT</th>
+      <th>Equipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each fans}}
+      <tr>
+        <td>{{nom_fam}}</td>
+        <td>{{rut_fan}}</td>
+        <td>{{nom_equipo}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+<h1>Agregar Fan</h1>
+<form action="/fan/agregar" method="POST">
+  <label for="rut_fan">RUT del Fan:</label>
+  <input type="text" id="rut_fan" name="rut_fan" required>
+  <br>
+  <label for="nom_fam">Nombre del fan:</label>
+  <input type="text" id="nom_fam" name="nom_fam" required>
+  <br>
+  <button type="submit">Agregar Fan</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Fan</h1>
+<form action="/fan/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este fan?');">
+  <label for="rut_fan">RUT del Fan:</label>
+  <input type="text" id="rut_fan" name="rut_fan" required placeholder="Ingrese el RUT del fan a eliminar">
+  
+  <button type="submit">Eliminar Fan</button>
+</form>

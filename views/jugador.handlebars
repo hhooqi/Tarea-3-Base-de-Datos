@@ -1,0 +1,58 @@
+<h1>Jugador con mas minutos jugados</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre del Jugador</th>
+      <th>Posición</th>
+      <th>Nacionalidad</th>
+      <th>Minutos Jugados</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each result}}
+    <tr>
+      <td>{{this.nom_jugador}}</td>
+      <td>{{this.posicion}}</td>
+      <td>{{this.nacionalidad}}</td>
+      <td>{{this.total_minutos}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<h1>Agregar Jugador</h1>
+<form action="/jugador/agregar" method="POST">
+  <label for="rut_jugador">RUT del Jugador:</label>
+  <input type="text" id="rut_jugador" name="rut_jugador" required>
+  <br>
+  <label for="nom_jugador">Nombre del Jugador:</label>
+  <input type="text" id="nom_jugador" name="nom_jugador" required>
+  <br>
+  <label for="posicion">Posición:</label>
+  <input type="text" id="posicion" name="posicion" required>
+  <br>
+  <label for="nacionalidad">Nacionalidad:</label>
+  <input type="text" id="nacionalidad" name="nacionalidad" required>
+  <br>
+  <label for="id_equipo">ID del Equipo:</label>
+  <input type="number" id="id_equipo" name="id_equipo" required>
+  <br>
+  <button type="submit">Agregar Jugador</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Jugador</h1>
+<form action="/jugador/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este jugador?');">
+  <label for="rut_jugador">RUT del Jugador:</label>
+  <input type="text" id="rut_jugador" name="rut_jugador" required placeholder="Ingrese el RUT del jugador a eliminar">
+  
+  <button type="submit">Eliminar Jugador</button>
+</form>
+
+

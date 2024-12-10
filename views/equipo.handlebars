@@ -1,0 +1,153 @@
+<h1>Tabla de Equipos</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID Equipo</th>
+      <th>Nombre del equipo</th>
+      <th>ID Cuerpo Técnico</th>
+      <th>Ciudad</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each result}}
+    <tr>
+      <td>{{this.id_equipo}}</td>
+      <td>{{this.nom_equipo}}</td>
+      <td>{{this.id_ct}}</td>
+      <td>{{this.ciudad}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h1>¿Cuál fue el equipo con menos goles?</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre del equipo</th>
+      <th>Goles recibidos</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each menosGoleado}}
+      <tr>
+        <td>{{this.nom_equipo}}</td>
+        <td>{{this.goles_recibidos}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h1>¿Cuál fue el equipo con mas goles?</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre del equipo</th>
+      <th>Goles anotados</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each massGoleado}}
+      <tr>
+        <td>{{this.nom_equipo}}</td>
+        <td>{{this.goles_anotados}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h1>Buscador de Director Técnico con ID de Equipo</h1>
+<form method="POST" action="/equipo/dt">
+  <label>
+    <input type="text" placeholder="Id de equipo" name="idE" required> 
+  </label>
+  <button type="submit">Buscar</button>
+</form>
+
+<p>{{mensaje}}</p>
+
+<div style="margin-top: 20px;">
+  <form method="POST" action="/equipo">
+    <button type="submit">Mostrar equipo con más rojas</button>
+  </form>
+</div>
+
+{{#if equipoConMasRojas}}
+  <h2>Equipo con Más Tarjetas Rojas</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>Tarjetas Rojas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{equipoConMasRojas.nom_equipo}}</td>
+        <td>{{equipoConMasRojas.total_rojas}}</td>
+      </tr>
+    </tbody>
+  </table>
+{{else}}
+  <p>No se ha seleccionado un equipo con más tarjetas rojas.</p>
+{{/if}}
+
+<div style="margin-top: 20px;">
+  <form method="POST" action="/equipo/amarillas">
+    <button type="submit">Mostrar equipo con más amarillas</button>
+  </form>
+</div>
+
+{{#if equipoConMasAmarillas}}
+  <h2>Equipo con Más Tarjetas Amarillas</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>Tarjetas Amarillas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{equipoConMasAmarillas.nom_equipo}}</td>
+        <td>{{equipoConMasAmarillas.total_amarillas}}</td>
+      </tr>
+    </tbody>
+  </table>
+{{else}}
+  <p>No se ha seleccionado un equipo con más tarjetas amarillas.</p>
+{{/if}}
+
+
+<h1>Agregar Equipo</h1>
+<form action="/equipo/agregar" method="POST">
+  <label for="id_equipo">ID Equipo:</label>
+  <input type="text" id="id_equipo" name="id_equipo" required>
+  <br>
+  <label for="nom_equipo">Nombre del Equipo:</label>
+  <input type="text" id="nom_equipo" name="nom_equipo" required>
+  <br>
+  <label for="id_ct">ID de cuerpo tecnico:</label>
+  <input type="number" id="id_ct" name="id_ct" required>
+  <br>
+  <label for="ciudad">Ciudad:</label>
+  <input type="text" id="ciudad" name="ciudad" required> 
+  <br>
+  <button type="submit">Agregar Equipo</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Equipo</h1>
+<form action="/equipo/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este equipo?');">
+  <label for="id_equipo">ID del Equipo:</label>
+  <input type="text" id="id_equipo" name="id_equipo" required placeholder="Ingrese el ID del equipo a eliminar">
+  
+  <button type="submit">Eliminar Equipo</button>
+</form>

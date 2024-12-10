@@ -1,0 +1,66 @@
+<h1>Lista de Estadios y sus características</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID Estadio</th>
+      <th>Nombre</th>
+      <th>Ubicación</th>
+      <th>Capacidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each result}}
+    <tr>
+      <td>{{this.id_estadio}}</td>
+      <td>{{this.nom_estadio}}</td>
+      <td>{{this.ubicacion}}</td>
+      <td>{{this.asientos_disponibles}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h1>Buscador de estadios por id_partido</h1>
+<form method="POST" action="/estadio/buscar">
+  <label>
+    <input type="text" placeholder="Id de partido" name="nombre" required> 
+  </label>
+  <button type="submit">Buscar</button>
+</form>
+
+{{#if mensaje}}
+  <div class="mensaje">{{mensaje}}</div>
+{{/if}}
+
+<h1>Agregar Estadio</h1>
+<form action="/estadio/agregar" method="POST">
+  <label for="id_estadio">ID Estadio:</label>
+  <input type="number" id="id_estadio" name="id_estadio" required>
+  <br>
+  <label for="nom_estadio">Nombre del Estadio:</label>
+  <input type="text" id="nom_estadio" name="nom_estadio" required>
+  <br>
+  <label for="ubicacion">Ubicación:</label>
+  <input type="text" id="ubicacion" name="ubicacion" required>
+  <br>
+  <label for="asientos_disponibles">Asientos Disponibles:</label>
+  <input type="number" id="asientos_disponibles" name="asientos_disponibles" required> 
+  <br>
+  <button type="submit">Agregar Equipo</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Estadio</h1>
+<form action="/estadio/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este estadio?');">
+  <label for="id_estadio">ID del Estadio:</label>
+  <input type="text" id="id_estadio" name="id_estadio" required placeholder="Ingrese el ID del estadio a eliminar">
+  
+  <button type="submit">Eliminar Estadio</button>
+</form>

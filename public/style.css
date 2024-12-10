@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: black;
+  background: linear-gradient(135deg, #ffb3b3, #1e90ff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #110e0d;
+}
+
+.button {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(234, 234, 234);
+  padding: 10px 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  font-size: 16px;
+}
+
+.navbar a:hover {
+  background-color: #000000;
+  border-radius: 5px;
+}
+
+.navbar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-destacado {
+  background-color: #2e83aa;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-destacado:hover {
+  background-color: #080606;
+  transform: scale(1.1);
+}
+
+.tabla-estadios {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-estadios thead {
+  background-color: #f5f5dc;
+  color: white;
+}
+
+.tabla-estadios th,
+.tabla-estadios td {
+  padding: 12px 15px;
+  border: 1px solid rgb(12, 2, 2);
+}
+
+.tabla-estadios tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.contenido {
+  margin-bottom: 50px;
+}
+
+.lista-preguntas {
+  list-style-type: none;
+  margin: 0;
+  background: #f5f5dc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.lista-preguntas li {
+  margin-bottom: 15px;
+}
+
+.lista-preguntas li h3 {
+  font-size: 1.1em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.lista-preguntas li h3:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.lista-enlaces {
+  list-style-type: none;
+  background: #ffb3b3;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.lista-enlaces li {
+  margin-bottom: 15px;
+}
+
+.lista-enlaces li a {
+  font-size: 1.1em;
+  color: #110e0d;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.lista-enlaces li a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+thead {
+  background-color: #f5f5dc;
+  color: rgb(0, 0, 0);
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+tbody tr {
+  background-color: #e7cece;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #110e0d;
+}
+
+form {
+  margin-top: 20px;
+  padding: 20px;
+  width: 50%;
+  background: #b3e6ff;
+  border-radius: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+form label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+form input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+form button {
+  background-color: #2e83aa;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #2e83aa;
+}
+
+.cuadro {
+  background-color: #b3e6ff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

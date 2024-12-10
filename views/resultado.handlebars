@@ -1,0 +1,41 @@
+<h1>Agregar Resultado</h1>
+<form action="/resultado/agregar" method="POST">
+  <label for="id_resultado">ID del resultado:</label>
+  <input type="text" id="id_resultado" name="id_resultado" required>
+  <br>
+  <label for="goles_total">Goles total del equipo:</label>
+  <input type="text" id="goles_total" name="goles_total" required>
+  <br>
+  <label for="tarjetas_r">Tarjetas rojas cometidas por el equipo:</label>
+  <input type="text" id="tarjetas_r" name="tarjetas_r" required>
+  <br>
+  <label for="tarjetas_a">Tarjetas amarillas cometidas por el equipo:</label>
+  <input type="text" id="tarjetas_a" name="tarjetas_a" required>
+  <br>
+  <label for="posesion_balon">Poseción del balon:</label>
+  <input type="text" id="posesion_balon" name="posesion_balon" required>
+  <br>
+  <label for="id_partido">Id del partido:</label>
+  <input type="text" id="id_partido" name="id_partido" required>
+  <br>
+  <label for="id_equipo">Id del equipo:</label>
+  <input type="text" id="id_equipo" name="id_equipo" required>
+  <br>
+  <button type="submit">Agregar resultado de un partido.</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Resultado</h1>
+<form action="/resultado/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este resultado?');">
+  <label for="id_resultado">ID del Resultado:</label>
+  <input type="text" id="id_resultado" name="id_resultado" required placeholder="Ingrese el ID del resultado a eliminar">
+  
+  <button type="submit">Eliminar Resultado</button>
+</form>

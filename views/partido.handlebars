@@ -1,0 +1,32 @@
+<h1>Agregar Partido</h1>
+<form action="/partido/agregar" method="POST">
+  <label for="id_partido">ID del partido:</label>
+  <input type="text" id="id_partido" name="id_partido" required>
+  <br>
+  <label for="id_estadio">ID del estadio:</label>
+  <input type="text" id="id_estadio" name="id_estadio" required>
+  <br>
+  <label for="id_liga">ID de la liga:</label>
+  <input type="text" id="id_liga" name="id_liga" required>
+  <br>
+  <label for="id_arbitro">ID del arbitro:</label>
+  <input type="text" id="id_arbitro" name="id_arbitro" required>
+  <br>
+  <button type="submit">Agregar Partido</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Partido</h1>
+<form action="/partido/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este partido?');">
+  <label for="id_partido">ID del Partido:</label>
+  <input type="text" id="id_partido" name="id_partido" required placeholder="Ingrese el ID del partido a eliminar">
+  
+  <button type="submit">Eliminar Partido</button>
+</form>

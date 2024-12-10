@@ -1,0 +1,66 @@
+  <h1>Lista de Árbitros</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID Árbitro</th>
+        <th>Nombre</th>
+        <th>Años de Experiencia</th>
+        <th>Nacionalidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each arbitros}}
+      <tr>
+        <td>{{this.id_arbitro}}</td>
+        <td>{{this.nom_arbitro}}</td>
+        <td>{{this.años_exp}}</td>
+        <td>{{this.nacionalidad_e}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h2>Consultar Partidos Dirigidos</h2>
+  <form action="/arbitro/partidos" method="POST">
+    <label for="id_arbitro">ID Árbitro:</label>
+    <input type="number" id="id_arbitro" name="id_arbitro" placeholder="Ingrese ID del árbitro" required />
+    <button type="submit">Buscar</button>
+  </form>
+
+
+  {{#if mensaje}}
+  <p><strong>{{mensaje}}</strong></p>
+  {{/if}}
+
+<h1>Agregar Árbitro</h1>
+<form action="/arbitro/agregar" method="POST">
+  <label for="id_arbitro">ID Arbitro:</label>
+  <input type="text" id="id_arbitro" name="id_arbitro" required>
+  <br>
+  <label for="nom_arbitro">Nombre del Árbitro:</label>
+  <input type="text" id="nom_arbitro" name="nom_arbitro" required>
+  <br>
+  <label for="años_exp">Años de Experiencia:</label>
+  <input type="number" id="años_exp" name="años_exp" required>
+  <br>
+  <label for="nacionalidad_e">Nacionalidad:</label>
+  <input type="text" id="nacionalidad_e" name="nacionalidad_e" required> 
+  <br>
+  <button type="submit">Agregar Árbitro</button>
+</form>
+
+{{#if mensaje}}
+<p><strong>{{mensaje}}</strong></p>
+{{/if}}
+
+{{#if error}}
+<p><strong>{{error}}</strong></p>
+{{/if}}
+
+<h1>Eliminar Árbitro</h1>
+<form action="/arbitro/eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este árbitro?');">
+  <label for="id_arbitro">ID del Árbitro:</label>
+  <input type="text" id="id_arbitro" name="id_arbitro" required placeholder="Ingrese el ID del árbitro a eliminar">
+  
+  <button type="submit">Eliminar Árbitro</button>
+</form>
